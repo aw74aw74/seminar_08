@@ -44,14 +44,21 @@ public class UserActionAspect {
 
         // Засекаем время выполнения
         long start = System.currentTimeMillis();
-        Object result = joinPoint.proceed();
-        long executionTime = System.currentTimeMillis() - start;
-
-        // Логируем информацию после выполнения метода
-        System.out.println("Результат: " + result);
-        System.out.println("Время выполнения: " + executionTime + "мс");
-        System.out.println("=".repeat(50));
-
-        return result;
+        Object result = null;
+        try {
+            // Выполняем метод
+            result = joinPoint.proceed();
+            return result;
+        } catch (Throwable e) {
+            // В случае исключения записываем его как результат
+            result = "Произошла ошибка: " + e.getMessage();
+            throw e;
+        } finally {
+            // Всегда логируем информацию о выполнении, даже при ошибке
+            long executionTime = System.currentTimeMillis() - start;
+            System.out.println("Результат: " + result);
+            System.out.println("Время выполнения: " + executionTime + "мс");
+            System.out.println("=".repeat(50));
+        }
     }
 }
