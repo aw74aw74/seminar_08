@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+# Интернет-магазин одежды на React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Описание проекта
 
-## Available Scripts
+Это проект интернет-магазина одежды, разработанный с использованием React и Redux. Приложение представляет собой полноценный интернет-магазин с каталогом товаров, детальными страницами продуктов, корзиной и личным кабинетом пользователя.
 
-In the project directory, you can run:
+## Функциональность
 
-### `npm start`
+- **Главная страница**: Отображение категорий товаров и рекламных баннеров
+- **Каталог товаров**: Просмотр всех доступных товаров с возможностью фильтрации
+- **Страница товара**: Детальная информация о товаре с возможностью просмотра изображений, выбора размера и добавления в корзину
+- **Навигация между товарами**: Возможность перемещаться между товарами с помощью стрелок на странице товара
+- **Связанные товары**: Отображение связанных товаров на странице товара
+- **Корзина**: Управление товарами в корзине (добавление, удаление, изменение количества)
+- **Профиль пользователя**: Личный кабинет с информацией о пользователе и историей заказов
+- **Адаптивный дизайн**: Корректное отображение на различных устройствах
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Структура проекта
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+src/
+├── components/                # Компоненты
+│   ├── layout/                # Компоненты макета
+│   │   ├── Header.jsx         # Шапка сайта с навигацией
+│   │   ├── Footer.jsx         # Подвал сайта
+│   │   └── Layout.jsx         # Общий макет для всех страниц
+│   └── product/               # Компоненты для товаров
+│       ├── ProductCard.jsx    # Карточка товара для каталога
+│       ├── ProductList.jsx    # Список товаров
+│       ├── ProductFilter.jsx  # Фильтрация товаров
+│       └── CartItem.jsx       # Элемент корзины
+├── pages/                     # Страницы
+│   ├── Index/                 # Главная страница
+│   │   └── Index.jsx          # Компонент главной страницы
+│   ├── CatalogPage/           # Страница каталога товаров
+│   │   └── CatalogPage.jsx    # Компонент страницы каталога
+│   ├── ProductPage/           # Страница отдельного товара
+│   │   └── ProductPage.jsx    # Компонент страницы товара
+│   ├── CartPage/              # Страница корзины
+│   │   └── CartPage.jsx       # Компонент страницы корзины
+│   └── ProfilePage/           # Страница профиля пользователя
+│       └── ProfilePage.jsx    # Компонент страницы профиля
+├── store/                     # Redux store
+│   ├── slices/                # Redux slices
+│   │   ├── cartSlice.js       # Управление корзиной
+│   │   └── productsSlice.js   # Управление товарами
+│   └── index.js               # Конфигурация store
+└── App.js                     # Корневой компонент с маршрутизацией
+```
 
-### `npm test`
+## Используемые технологии
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **React**: Библиотека для создания пользовательских интерфейсов
+- **Redux**: Управление состоянием приложения с использованием Redux Toolkit
+- **React Router**: Маршрутизация между страницами приложения
+- **Material UI**: Библиотека компонентов для создания современного интерфейса
+- **Material UI Styling API**: Стилизация компонентов с использованием функции `styled` из Material UI
 
-### `npm run build`
+## Особенности реализации
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Фильтрация товаров**: Фильтрация по размерам с использованием Redux
+- **Оптимизация изображений**: Правильное масштабирование и отображение изображений товаров
+- **Навигация по товарам**: Удобное перемещение между товарами на странице продукта
+- **Связанные товары**: Алгоритм подбора связанных товаров на основе текущего просматриваемого товара
+- **Управление состоянием корзины**: Полноценное управление товарами в корзине с сохранением состояния
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Запуск проекта
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Для запуска проекта выполните следующие команды:
 
-### `npm run eject`
+```bash
+# Установка зависимостей
+npm install
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Запуск проекта в режиме разработки
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Приложение будет доступно по адресу [http://localhost:3000](http://localhost:3000).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Сборка проекта
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Для сборки проекта выполните команду:
 
-## Learn More
+```bash
+npm run build
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Собранное приложение будет находиться в папке `build`.

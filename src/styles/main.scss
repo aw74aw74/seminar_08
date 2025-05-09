@@ -1,0 +1,24 @@
+/* Главный файл стилей */
+
+/* Импорт стилей компонентов */
+@import './components/header.scss';
+@import './components/footer.scss';
+@import './components/product-card.scss';
+@import './components/index.scss';
+
+/* Общие стили */
+body {
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.center {
+  max-width: 1140px;
+  margin: 0 auto;
+}
